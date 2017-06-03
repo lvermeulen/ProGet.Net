@@ -8,10 +8,10 @@ namespace ProGet.Net.Tests
     public partial class ProGetClientShould
     {
         [Theory]
-        [InlineData("fromFeed", "toFeed")]
-        public async Task ListPromotionsAsync(string fromFeed, string toFeed)
+        [InlineData("TestUniversal")]
+        public async Task ListUniversalFeedPackagesAsync(string feedName)
         {
-            var results = await _client.ListPromotionsAsync(fromFeed, toFeed, null, null, null);
+            var results = await _client.ListUniversalFeedPackagesAsync(feedName);
 
             Assert.NotNull(results);
             Assert.NotEmpty(results);
