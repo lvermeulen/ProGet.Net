@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xunit;
 
 // ReSharper disable CheckNamespace
@@ -15,7 +14,8 @@ namespace ProGet.Net.Tests
             var results = await _client.ListUniversalFeedPackagesAsync(feedName);
 
             Assert.NotNull(results);
-            Assert.True(results.Any());
+            Assert.NotEmpty(results);
         }
     }
 }
+
