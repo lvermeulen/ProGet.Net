@@ -16,7 +16,7 @@
     "tags": [ "ProGet", "HTTP" ],
     "projectUrl": "https://github.com/lvermeulen/ProGet.Net",
     "licenseUrl": "https://github.com/lvermeulen/ProGet.Net/blob/master/LICENSE",
-    "iconUrl": "http://i.imgur.com/WnKfKOC.png?1",
+    "iconUrl": "http://i.imgur.com/r6KLIJa.png?1",
     "repository": {
       "type": "git",
       "url": "https://github.com/lvermeulen/ProGet.Net"
@@ -30,9 +30,9 @@
 
   "frameworks": {
     "net452": {},
-    "netstandard1.6": {
+    "netstandard1.4": {
       "dependencies": {
-        "NETStandard.Library": "1.6.0"
+        "NETStandard.Library": "1.4.0"
       }
     }
   }
