@@ -28,9 +28,9 @@ ProGet.Net is a C# client for [Inedo ProGet](https://inedo.com/proget).
 	* [ ] NpmFeeds                   
 	* [ ] NpmPackages                
 	* [ ] NuGetPackages              
-	* [ ] Packages                   
+	* [X] Packages                   
 	* [ ] ProGetPackages             
-	* [ ] ScheduledTasks             
-	* [ ] Security                   
-	* [ ] Users                      
+	* [X] ScheduledTasks             
+	* [X] Security                   
+	* [X] Users                      
  
