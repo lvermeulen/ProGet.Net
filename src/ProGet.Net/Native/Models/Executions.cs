@@ -8,6 +8,6 @@ namespace ProGet.Net.Native.Models
         public string StartedOn_Date { get; set; }
         public string EndedOn_Date { get; set; }
         public int HighestLogMessage_Level { get; set; }
-        public object InitiatedBy_User { get; set; } //TODO: User class
+        public string InitiatedBy_User { get; set; }
     }
 }

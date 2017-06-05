@@ -8,7 +8,7 @@ namespace ProGet.Net.Tests
     public partial class ProGetClientShould
     {
         [Theory]
-        [InlineData(1)]
+        [InlineData(4)]
         public async Task ScheduledTasks_GetExecutionsAsync(int scheduledTaskId)
         {
             var results = await _client.ScheduledTasks_GetExecutionsAsync(scheduledTaskId, 1000);
