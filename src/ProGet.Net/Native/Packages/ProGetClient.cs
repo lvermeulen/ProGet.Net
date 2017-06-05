@@ -25,9 +25,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(publishedBefore_Date).Capitalize(), publishedBefore_Date) //TODO: verify DateTime
             );
 
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<PackagesCombined>>(nameof(Packages_GetPackagesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<IEnumerable<PackagesCombined>>(nameof(Packages_GetPackagesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
     }
 }
