@@ -94,14 +94,13 @@ namespace ProGet.Net
         /// <summary>
         /// Gets the specified role in the database, along with all the tasks that comprise the role
         /// </summary>
-        //TODO: returns (Roles, RoleTasks_Extended)
-        public async Task<Roles> Security_GetRoleAsync(int role_Id)
+        public async Task<RolesRoleTasksExtended> Security_GetRoleAsync(int role_Id)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(role_Id).Capitalize(), role_Id)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<Roles>(nameof(Security_GetRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
+            var response = await ExecuteNativeApiMethodAsync<RolesRoleTasksExtended>(nameof(Security_GetRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
 
             return response; //TODO: inline
         }
@@ -109,10 +108,9 @@ namespace ProGet.Net
         /// <summary>
         /// Gets all the roles in the system, along with all the tasks comprising each role
         /// </summary>
-        //TODO: returns (Roles, RoleTasks_Extended)
-        public async Task<IEnumerable<Roles>> Security_GetRolesAsync()
+        public async Task<RolesRoleTasksExtended> Security_GetRolesAsync()
         {
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<Roles>>(nameof(Security_GetRolesAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
+            var response = await ExecuteNativeApiMethodAsync<RolesRoleTasksExtended>(nameof(Security_GetRolesAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
 
             return response; //TODO: inline
         }
