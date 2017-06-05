@@ -13,8 +13,7 @@ namespace ProGet.Net
         /// <summary>
         /// Gets data relevant to the ProGet homepage
         /// </summary>
-        /// //TODO: returns DashboardPackages_Latest, DashboardFeeds
-        public async Task<DashboardPackagesLatest> Dashboards_GetDashboardInfoAsync(
+        public async Task<DashboardPackagesDashboardFeeds> Dashboards_GetDashboardInfoAsync(
             int packages_Count,
             bool includeInactive_Indicator
         )
@@ -24,7 +23,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(includeInactive_Indicator).Capitalize(), includeInactive_Indicator.ToYnIndicator())
             );
 
-            return await ExecuteNativeApiMethodAsync<DashboardPackagesLatest>(nameof(Dashboards_GetDashboardInfoAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
+            return await ExecuteNativeApiMethodAsync<DashboardPackagesDashboardFeeds>(nameof(Dashboards_GetDashboardInfoAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
