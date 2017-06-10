@@ -25,14 +25,13 @@ namespace ProGet.Net
         /// <summary>
         /// Gets information about an execution as well as all of the log entries for it
         /// </summary>
-        //TODO: returns (Executions, ExecutionLogEntries)
-        public async Task<IEnumerable<Execution>> Executions_GetExecutionAsync(int execution_Id)
+        public async Task<ExecutionsExecutionLogEntries> Executions_GetExecutionAsync(int execution_Id)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(execution_Id).Capitalize(), execution_Id)
             );
 
-            return await ExecuteNativeApiMethodAsync<IEnumerable<Execution>>(nameof(Executions_GetExecutionAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
+            return await ExecuteNativeApiMethodAsync<ExecutionsExecutionLogEntries>(nameof(Executions_GetExecutionAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
