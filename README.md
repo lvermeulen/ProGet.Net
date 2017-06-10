@@ -9,20 +9,20 @@ ProGet.Net is a C# client for [Inedo ProGet](https://inedo.com/proget).
 * [X] Package promotion API
 * [ ] Native API
 	* [ ] BowerPackages              
-	* [ ] Configuration              
-	* [ ] Connectors                 
-	* [ ] Dashboards                 
+	* [X] Configuration              
+	* [X] Connectors                 
+	* [X] Dashboards                 
 	* [ ] DockerBlobs                
 	* [ ] DockerImages               
-	* [ ] EventOccurrences           
-	* [ ] EventTypes                 
-	* [ ] Executions                 
+	* [X] EventOccurrences           
+	* [X] EventTypes                 
+	* [X] Executions                 
 	* [ ] FeedAdapters               
 	* [ ] FeedPackageFilters         
 	* [ ] FeedRetentionRules         
 	* [ ] Feeds                      
-	* [ ] IndexingServers            
-	* [ ] LogMessages                
+	* [X] IndexingServers            
+	* [X] LogMessages                
 	* [ ] MavenArtifacts             
 	* [ ] NpmConnectors              
 	* [ ] NpmFeeds                   
