@@ -269,7 +269,6 @@ namespace ProGet.Net
         /// <summary>
         /// Gets the details of a Maven feed using either an ID or a name
         /// </summary>
-        //TODO: returns (Feeds, FeedConnectors_Extended)
         public async Task<FeedsFeedConnectorsExtended> Feeds_GetMavenFeedAsync(
             int feed_Id,
             string feed_Name)
@@ -285,8 +284,18 @@ namespace ProGet.Net
         /// <summary>
         /// Gets the details of an npm feed using either an ID or a name
         /// </summary>
-        public async Task<FeedsFeedConnectorsExtended> Feeds_GetNpmFeedAsync() => 
-            await ExecuteNativeApiMethodAsync<FeedsFeedConnectorsExtended>(nameof(Feeds_GetNpmFeedAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
+        public async Task<FeedsFeedConnectorsExtended> Feeds_GetNpmFeedAsync(
+            int feed_Id,
+            string feed_Name)
+        {
+            var queryParamValues = QueryParamValues.From(
+                new NamedValue(nameof(feed_Id).Capitalize(), feed_Id),
+                new NamedValue(nameof(feed_Name).Capitalize(), feed_Name)
+            );
+
+            return await ExecuteNativeApiMethodAsync<FeedsFeedConnectorsExtended>(nameof(Feeds_GetNpmFeedAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
+        }
+
 
         /// <summary>
         /// Gets the details of a NuGet feed using either an ID or a name
