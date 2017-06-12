@@ -17,10 +17,10 @@ ProGet.Net is a C# client for [Inedo ProGet](https://inedo.com/proget).
 	* [X] EventOccurrences           
 	* [X] EventTypes                 
 	* [X] Executions                 
-	* [ ] FeedAdapters               
-	* [ ] FeedPackageFilters         
-	* [ ] FeedRetentionRules         
-	* [ ] Feeds                      
+	* [X] FeedAdapters               
+	* [X] FeedPackageFilters         
+	* [X] FeedRetentionRules         
+	* [X] Feeds                      
 	* [X] IndexingServers            
 	* [X] LogMessages                
 	* [ ] MavenArtifacts             
