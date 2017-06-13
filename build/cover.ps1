@@ -11,9 +11,11 @@ $filter = "$CoverFilter $alwaysFilter"
 $packagesPath = $env:USERPROFILE + "\.nuget\packages"
 $opencoverPath = $packagesPath + "\OpenCover\4.6.519\tools\OpenCover.Console.exe"
 $coverallsPath = $packagesPath + "\coveralls.io\1.3.4\tools\coveralls.net.exe"
-$tempPath = "c:\codecoverage"
+$tempPath = "$PSScriptRoot\..\codecoverage"
 $tempCoveragePath = $tempPath + "\coverage\"
 $tempCoverageFileName = $tempCoveragePath + "coverage.xml"
+
+& nuget install -OutputDirectory $packagesPath -Version 1.3.4 coveralls.io
 
 <#
 # create temp path
