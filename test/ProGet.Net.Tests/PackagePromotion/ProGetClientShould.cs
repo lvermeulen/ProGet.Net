@@ -9,9 +9,9 @@ namespace ProGet.Net.Tests
     {
         [Theory]
         [InlineData("TestUniversal")]
-        public async Task ListUniversalFeedPackagesAsync(string feedName)
+        public async Task UniversalFeed_ListPackagesAsync(string feedName)
         {
-            var results = await _client.ListUniversalFeedPackagesAsync(feedName);
+            var results = await _client.UniversalFeed_ListPackagesAsync(feedName);
 
             Assert.NotNull(results);
             Assert.NotEmpty(results);

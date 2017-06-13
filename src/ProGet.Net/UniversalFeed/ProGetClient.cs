@@ -16,7 +16,7 @@ namespace ProGet.Net
             .SetQueryParams(queryParamValues, Flurl.NullValueHandling.NameOnly)
             .AllowAnyHttpStatus();
 
-        public async Task<IEnumerable<Package>> ListUniversalFeedPackagesAsync(string feedName, string group = null, string name = null, int? count = null)
+        public async Task<IEnumerable<Package>> UniversalFeed_ListPackagesAsync(string feedName, string group = null, string name = null, int? count = null)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(group), group),
@@ -28,7 +28,7 @@ namespace ProGet.Net
                 .GetJsonAsync<IEnumerable<Package>>();
         }
 
-        public async Task<IEnumerable<PackageVersion>> ListUniversalFeedVersionsAsync(string feedName, string group = null, string name = null, int? count = null, string version = null, bool? includeFileList = null)
+        public async Task<IEnumerable<PackageVersion>> UniversalFeed_ListVersionsAsync(string feedName, string group = null, string name = null, int? count = null, string version = null, bool? includeFileList = null)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(group), group),
@@ -42,7 +42,7 @@ namespace ProGet.Net
                 .GetJsonAsync<IEnumerable<PackageVersion>>();
         }
 
-        public async Task<PackageDownload> DownloadPackageSpecificVersionAsync(string feedName, string groupName, string packageName, string packageVersion, ContentOnlyTypes? contentOnly = null)
+        public async Task<PackageDownload> UniversalFeed_DownloadPackageSpecificVersionAsync(string feedName, string groupName, string packageName, string packageVersion, ContentOnlyTypes? contentOnly = null)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(contentOnly), contentOnly)
@@ -67,7 +67,7 @@ namespace ProGet.Net
             };
         }
 
-        public async Task<PackageDownload> DownloadPackageLatestVersionAsync(string feedName, string groupName, string packageName, ContentOnlyTypes? contentOnly = null)
+        public async Task<PackageDownload> UniversalFeed_DownloadPackageLatestVersionAsync(string feedName, string groupName, string packageName, ContentOnlyTypes? contentOnly = null)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(contentOnly), contentOnly),
@@ -93,7 +93,7 @@ namespace ProGet.Net
             };
         }
 
-        public async Task<bool> UploadPackageAsync(string feedName, PackageUpload packageUpload)
+        public async Task<bool> UniversalFeed_UploadPackageAsync(string feedName, PackageUpload packageUpload)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue("content-url", packageUpload.Contenturl),
@@ -109,7 +109,7 @@ namespace ProGet.Net
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeletePackageAsync(string groupName, string packageName, string packageVersion)
+        public async Task<bool> UniversalFeed_DeletePackageAsync(string groupName, string packageName, string packageVersion)
         {
             string path = groupName == null
                 ? $"delete/{packageName}/{packageVersion}"
@@ -121,7 +121,7 @@ namespace ProGet.Net
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<IEnumerable<Package>> SearchPackagesAsync(string feedName, string query, int? count = null)
+        public async Task<IEnumerable<Package>> UniversalFeed_SearchPackagesAsync(string feedName, string query, int? count = null)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(query), query),

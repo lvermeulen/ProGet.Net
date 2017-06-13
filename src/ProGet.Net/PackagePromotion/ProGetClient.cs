@@ -15,7 +15,7 @@ namespace ProGet.Net
             .SetQueryParams(queryParamValues, Flurl.NullValueHandling.NameOnly)
             .AllowAnyHttpStatus();
 
-        public async Task<IEnumerable<Promotion>> ListPromotionsAsync(string fromFeed, string toFeed, string groupName, string packageName, string version)
+        public async Task<IEnumerable<Promotion>> PackagePromotion_ListPromotionsAsync(string fromFeed, string toFeed, string groupName, string packageName, string version)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(fromFeed), fromFeed),
@@ -29,7 +29,7 @@ namespace ProGet.Net
                 .GetJsonAsync<IEnumerable<Promotion>>();
         }
 
-        public async Task<bool> PromotePackageAsync(PackagePromotionContents packagePromotion)
+        public async Task<bool> PackagePromotion_PromotePackageAsync(PackagePromotionContents packagePromotion)
         {
             var response = await GetPackagePromotionApiClient("promote")
                 .PostJsonAsync(packagePromotion);

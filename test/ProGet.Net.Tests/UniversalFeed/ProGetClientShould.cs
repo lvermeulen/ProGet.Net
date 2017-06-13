@@ -9,9 +9,9 @@ namespace ProGet.Net.Tests
     {
         [Theory]
         [InlineData("fromFeed", "toFeed")]
-        public async Task ListPromotionsAsync(string fromFeed, string toFeed)
+        public async Task PackagePromotion_ListPromotionsAsync(string fromFeed, string toFeed)
         {
-            var results = await _client.ListPromotionsAsync(fromFeed, toFeed, null, null, null);
+            var results = await _client.PackagePromotion_ListPromotionsAsync(fromFeed, toFeed, null, null, null);
 
             Assert.NotNull(results);
             Assert.NotEmpty(results);
