@@ -6,8 +6,8 @@ pull_requests:
   do_not_increment_build_number: true
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: Z4+/jxAvo+yaVszlGT/QVGGdm0+F044l8SsVsizw/uERgvoQmmzvlOkoTtD4+n0A
-  COVER_FILTER: '+[PullingHook*]* -[*]*.Logging.* -[*Tests]*'
+    secure: 2qFSoLnEl4eJ6MkSJ2tIjM8Rl1eHmXCuB+ueuZNigC4pmZgBGKXNtA2CWl5S45Dj
+  COVER_FILTER: '+[ProGet.Net*]* -[*]*.Logging.* -[*Tests]* -[*]*.Models.* -[Flurl*]*'
 build_script:
 - ps: .\build\build.ps1 $env:APPVEYOR_BUILD_VERSION $env:APPVEYOR_REPO_TAG_NAME
 #before_test:
@@ -17,7 +17,7 @@ test_script:
     if ($true)
     {
         .\build\test.ps1
-        #.\build\cover.ps1 "$env:COVERALLS_REPO_TOKEN" "$env:COVER_FILTER"
+        .\build\cover.ps1 "$env:COVERALLS_REPO_TOKEN" "$env:COVER_FILTER"
     }
 artifacts:
 - path: '**\*.nupkg'

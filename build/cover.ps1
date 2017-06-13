@@ -15,6 +15,7 @@ $tempPath = "c:\codecoverage"
 $tempCoveragePath = $tempPath + "\coverage\"
 $tempCoverageFileName = $tempCoveragePath + "coverage.xml"
 
+<#
 # create temp path
 if (-not (test-path $tempPath) ) {
     mkdir $tempPath | Out-Null
@@ -52,6 +53,7 @@ Get-ChildItem -Path $PSScriptRoot\..\test -Filter project.json -Recurse | ForEac
         -hideskipped:Filter `
         -oldstyle 
 }
+#>
 
 # upload to coveralls.io
 Write-Output "Sending code coverage results to coveralls.io"
