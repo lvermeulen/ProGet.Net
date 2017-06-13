@@ -31,7 +31,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(scope_Name).Capitalize(), scope_Name),
                 new NamedValue(nameof(version_Text).Capitalize(), version_Text),
                 new NamedValue(nameof(packageJson_Bytes).Capitalize(), packageJson_Bytes),
-                new NamedValue(nameof(published_Date).Capitalize(), published_Date), //TODO: verify DateTime
+                new NamedValue(nameof(published_Date).Capitalize(), published_Date.ToJsonDateTime()),
                 new NamedValue(nameof(tag_Name).Capitalize(), tag_Name),
                 new NamedValue(nameof(packageHash_Bytes).Capitalize(), packageHash_Bytes),
                 new NamedValue(nameof(cached_Indicator).Capitalize(), cached_Indicator.ToYnIndicator()),

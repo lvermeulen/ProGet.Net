@@ -14,7 +14,7 @@ namespace ProGet.Net
         /// <summary>
         /// Creates a new package or updates an existing one
         /// </summary>
-        //TODO returns PackageHashRequired_Indicator
+        //TODO returns PackageHashRequired_Indicator?
         public async Task<int> NuGetPackages_CreateOrUpdatePackageAsync(
             int feed_Id,
             string package_Id,
@@ -37,7 +37,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(package_Id).Capitalize(), package_Id),
                 new NamedValue(nameof(version_Text).Capitalize(), version_Text),
                 new NamedValue(nameof(targetFrameworks_Text).Capitalize(), targetFrameworks_Text),
-                new NamedValue(nameof(published_Date).Capitalize(), published_Date), //TODO: verify DateTime
+                new NamedValue(nameof(published_Date).Capitalize(), published_Date.ToJsonDateTime()),
                 new NamedValue(nameof(package_Size).Capitalize(), package_Size),
                 new NamedValue(nameof(packageHash_Bytes).Capitalize(), packageHash_Bytes),
                 new NamedValue(nameof(nuspecFile_Bytes).Capitalize(), nuspecFile_Bytes),

@@ -25,7 +25,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(connector_Id).Capitalize(), connector_Id),
                 new NamedValue(nameof(includeName_Csv).Capitalize(), includeName_Csv),
                 new NamedValue(nameof(excludeName_Csv).Capitalize(), excludeName_Csv),
-                new NamedValue(nameof(modifiedAfter_Date).Capitalize(), modifiedAfter_Date), //TODO: verify DateTime
+                new NamedValue(nameof(modifiedAfter_Date).Capitalize(), modifiedAfter_Date.ToJsonDateTime()),
                 new NamedValue(nameof(maxResults_Count).Capitalize(), maxResults_Count)
             );
 

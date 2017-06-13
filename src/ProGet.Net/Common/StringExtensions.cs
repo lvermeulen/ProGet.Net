@@ -39,5 +39,7 @@ namespace ProGet.Net.Common
         public static string ToTrueFalse(this bool? value) => value.HasValue ? ToTrueFalse(value.Value) : null;
 
         public static string ToTrueFalse(this bool value) => value ? "true" : "false";
+
+        public static string ToJsonDateTime(this DateTime dateTime) => dateTime.ToString("yyyy-MM-ddTHH:mm:ssZ");
     }
 }

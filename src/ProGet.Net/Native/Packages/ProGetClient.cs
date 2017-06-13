@@ -22,7 +22,7 @@ namespace ProGet.Net
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(packages_Count).Capitalize(), packages_Count),
                 new NamedValue(nameof(feed_Id).Capitalize(), feed_Id),
-                new NamedValue(nameof(publishedBefore_Date).Capitalize(), publishedBefore_Date) //TODO: verify DateTime
+                new NamedValue(nameof(publishedBefore_Date).Capitalize(), publishedBefore_Date.ToJsonDateTime())
             );
 
             return await ExecuteNativeApiMethodAsync<IEnumerable<PackagesCombined>>(nameof(Packages_GetPackagesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);

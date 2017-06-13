@@ -11,7 +11,7 @@ namespace ProGet.Net.Tests
         [Fact]
         public async Task Packages_GetPackagesAsync()
         {
-            var results = await _client.Packages_GetPackagesAsync(1000, 2, DateTime.Now);
+            var results = await _client.Packages_GetPackagesAsync(1000, 2, DateTime.Today);
 
             Assert.NotNull(results);
             Assert.NotEmpty(results);

@@ -45,11 +45,11 @@ namespace ProGet.Net
         /// </summary>
         public async Task<IEnumerable<NpmPackageLatest>> NpmFeeds_GetLatestPackageVersionsAsync(
             int feed_Id,
-            DateTime since_Date) //TODO: verify DateTime
+            DateTime since_Date)
         {
             var queryParamValues = QueryParamValues.From(
                 new NamedValue(nameof(feed_Id).Capitalize(), feed_Id),
-                new NamedValue(nameof(since_Date).Capitalize(), since_Date)
+                new NamedValue(nameof(since_Date).Capitalize(), since_Date.ToJsonDateTime())
             );
 
             return await ExecuteNativeApiMethodAsync<IEnumerable<NpmPackageLatest>>(nameof(NpmFeeds_GetLatestPackageVersionsAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
