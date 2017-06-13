@@ -10,8 +10,5 @@ namespace ProGet.Net
 {
     public partial class ProGetClient
     {
-        //DockerBlobs_GetBlobs
-        //Gets all of the blobs in a feed.
-        //Feed_Id(Int32) DataTable(DockerBlobs)
     }
 }
