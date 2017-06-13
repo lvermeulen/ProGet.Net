@@ -33,9 +33,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(privilegeType_Code).Capitalize(), privilegeType_Code)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<int>(nameof(Security_AddPrivilegeAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<int>(nameof(Security_AddPrivilegeAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -55,9 +53,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(tasks_Csv).Capitalize(), tasks_Csv)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<int>(nameof(Security_CreateOrUpdateRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<int>(nameof(Security_CreateOrUpdateRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -69,9 +65,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(role_Id).Capitalize(), role_Id)
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(Security_DeleteRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(Security_DeleteRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -86,9 +80,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(principalType_Code).Capitalize(), principalType_Code)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<PrivilegesExtended>>(nameof(Security_GetPrivilegesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<IEnumerable<PrivilegesExtended>>(nameof(Security_GetPrivilegesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -100,30 +92,20 @@ namespace ProGet.Net
                 new NamedValue(nameof(role_Id).Capitalize(), role_Id)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<RolesRoleTasksExtended>(nameof(Security_GetRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<RolesRoleTasksExtended>(nameof(Security_GetRoleAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Gets all the roles in the system, along with all the tasks comprising each role
         /// </summary>
-        public async Task<RolesRoleTasksExtended> Security_GetRolesAsync()
-        {
-            var response = await ExecuteNativeApiMethodAsync<RolesRoleTasksExtended>(nameof(Security_GetRolesAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
-
-            return response; //TODO: inline
-        }
+        public async Task<RolesRoleTasksExtended> Security_GetRolesAsync() => 
+            await ExecuteNativeApiMethodAsync<RolesRoleTasksExtended>(nameof(Security_GetRolesAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
 
         /// <summary>
         /// Gets all of the tasks in the system
         /// </summary>
-        public async Task<IEnumerable<Tasks>> Security_GetTasksAsync()
-        {
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<Tasks>>(nameof(Security_GetTasksAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
-
-            return response; //TODO: inline
-        }
+        public async Task<IEnumerable<Tasks>> Security_GetTasksAsync() => 
+            await ExecuteNativeApiMethodAsync<IEnumerable<Tasks>>(nameof(Security_GetTasksAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
 
         /// <summary>
         /// Gets the list of privileges specifically assigned to a user or any specified groups
@@ -139,9 +121,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(groupNames_Csv).Capitalize(), groupNames_Csv)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<PrivilegesExtended>>(nameof(Security_GetUserPrivilegesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<IEnumerable<PrivilegesExtended>>(nameof(Security_GetUserPrivilegesAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -153,9 +133,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(privilege_Id).Capitalize(), privilege_Id)
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(Security_RemovePrivilegeAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(Security_RemovePrivilegeAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
     }
 }

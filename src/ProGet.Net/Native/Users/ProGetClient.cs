@@ -19,9 +19,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(group_Name).Capitalize(), group_Name)
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(Users_CreateGroupAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(Users_CreateGroupAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -40,9 +38,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(groups_Xml).Capitalize(), groups_Xml)
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(Users_CreateOrUpdateUserAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(Users_CreateOrUpdateUserAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -54,9 +50,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(group_Name).Capitalize(), group_Name)
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(Users_DeleteGroupAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(Users_DeleteGroupAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -68,20 +62,14 @@ namespace ProGet.Net
                 new NamedValue(nameof(group_Name).Capitalize(), group_Name)
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(Users_DeleteUserAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(Users_DeleteUserAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Gets a list of user groups in the system
         /// </summary>
-        public async Task<IEnumerable<Group>> Users_GetGroupsAsync()
-        {
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<Group>>(nameof(Users_GetGroupsAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
-
-            return response; //TODO: inline
-        }
+        public async Task<IEnumerable<Group>> Users_GetGroupsAsync() => 
+            await ExecuteNativeApiMethodAsync<IEnumerable<Group>>(nameof(Users_GetGroupsAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
 
         /// <summary>
         /// Gets the details of the specified user, and a list of all the groups the user belongs to
@@ -92,20 +80,14 @@ namespace ProGet.Net
                 new NamedValue(nameof(user_Name).Capitalize(), user_Name)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<UsersUserGroups>(nameof(Users_GetUserAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<UsersUserGroups>(nameof(Users_GetUserAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Gets all the users in the system, along with all the groups in the system
         /// </summary>
-        public async Task<UsersUserGroups> Users_GetUsersAsync()
-        {
-            var response = await ExecuteNativeApiMethodAsync<UsersUserGroups>(nameof(Users_GetUsersAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
-
-            return response; //TODO: inline
-        }
+        public async Task<UsersUserGroups> Users_GetUsersAsync() => 
+            await ExecuteNativeApiMethodAsync<UsersUserGroups>(nameof(Users_GetUsersAsync).WithoutAsyncSuffix()).ConfigureAwait(false);
 
         /// <summary>
         /// Gets a list of users in the specified group
@@ -116,9 +98,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(group_Name).Capitalize(), group_Name)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<User>>(nameof(Users_GetUsersInGroupAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<IEnumerable<User>>(nameof(Users_GetUsersInGroupAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
     }
 }

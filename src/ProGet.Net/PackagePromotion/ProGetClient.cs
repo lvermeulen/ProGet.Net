@@ -25,10 +25,8 @@ namespace ProGet.Net
                 new NamedValue(nameof(version), version)
             );
 
-            var response = await GetPackagePromotionApiClient("list", queryParamValues)
+            return await GetPackagePromotionApiClient("list", queryParamValues)
                 .GetJsonAsync<IEnumerable<Promotion>>();
-
-            return response; //TODO: inline
         }
 
         public async Task<bool> PromotePackageAsync(PackagePromotionContents packagePromotion)

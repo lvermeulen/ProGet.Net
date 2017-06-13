@@ -24,10 +24,8 @@ namespace ProGet.Net
                 new NamedValue(nameof(count), count)
             );
 
-            var response = await GetUniversalFeedApiClient($"{feedName}/packages", queryParamValues)
+            return await GetUniversalFeedApiClient($"{feedName}/packages", queryParamValues)
                 .GetJsonAsync<IEnumerable<Package>>();
-
-            return response; //TODO: inline
         }
 
         public async Task<IEnumerable<PackageVersion>> ListUniversalFeedVersionsAsync(string feedName, string group = null, string name = null, int? count = null, string version = null, bool? includeFileList = null)
@@ -40,10 +38,8 @@ namespace ProGet.Net
                 new NamedValue(nameof(includeFileList), includeFileList.ToTrueFalse())
             );
 
-            var response = await GetUniversalFeedApiClient($"{feedName}/versions", queryParamValues)
+            return await GetUniversalFeedApiClient($"{feedName}/versions", queryParamValues)
                 .GetJsonAsync<IEnumerable<PackageVersion>>();
-
-            return response; //TODO: inline
         }
 
         public async Task<PackageDownload> DownloadPackageSpecificVersionAsync(string feedName, string groupName, string packageName, string packageVersion, ContentOnlyTypes? contentOnly = null)
@@ -132,10 +128,8 @@ namespace ProGet.Net
                 new NamedValue(nameof(count), count)
             );
 
-            var response = await GetUniversalFeedApiClient($"{feedName}/search", queryParamValues)
+            return await GetUniversalFeedApiClient($"{feedName}/search", queryParamValues)
                 .GetJsonAsync<IEnumerable<Package>>();
-
-            return response; //TODO: inline
         }
     }
 }

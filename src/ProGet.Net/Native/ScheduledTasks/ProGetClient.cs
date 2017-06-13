@@ -22,9 +22,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(max_Results).Capitalize(), max_Results)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<Executions>>(nameof(ScheduledTasks_GetExecutionsAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<IEnumerable<Executions>>(nameof(ScheduledTasks_GetExecutionsAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -36,9 +34,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(feed_Id).Capitalize(), feed_Id)
             );
 
-            var response = await ExecuteNativeApiMethodAsync<IEnumerable<ScheduledTasksExtended>>(nameof(ScheduledTasks_GetScheduledTasksAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync<IEnumerable<ScheduledTasksExtended>>(nameof(ScheduledTasks_GetScheduledTasksAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -61,9 +57,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(runImmediately_Indicator).Capitalize(), runImmediately_Indicator.ToYnIndicator())
             );
 
-            var response = await ExecuteNativeApiMethodAsync(nameof(ScheduledTasks_UpdateScheduledTaskAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-
-            return response; //TODO: inline
+            return await ExecuteNativeApiMethodAsync(nameof(ScheduledTasks_UpdateScheduledTaskAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
     }
 }
