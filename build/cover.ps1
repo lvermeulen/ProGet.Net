@@ -69,4 +69,4 @@ Write-Output "Sending code coverage results to coveralls.io"
 Push-AppveyorArtifact codecoverage.zip
 
 pip install codecov
-codecov -f $tempCoverageFileName
+codecov -X gcov -f $tempCoverageFileName
