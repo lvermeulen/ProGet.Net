@@ -12,7 +12,7 @@ namespace ProGet.Net.Tests
         {
             var result = await _client.ProGetPackages_GetPackageCountAsync(1, true, 1000);
 
-            //Assert.True(result > 0);
+            Assert.True(result >= 0);
         }
 
         [Fact]
