@@ -34,15 +34,6 @@ namespace ProGet.Net.Tests
         }
 
         [Fact]
-        public async Task Feeds_GetLicenseUrlsAsync()
-        {
-            var results = await _client.Feeds_GetLicenseUrlsAsync(2);
-
-            Assert.NotNull(results);
-            Assert.NotEmpty(results);
-        }
-
-        [Fact]
         public async Task Feeds_GetMavenFeedAsync()
         {
             var result = await _client.Feeds_GetMavenFeedAsync(3, null);

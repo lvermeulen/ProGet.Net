@@ -255,18 +255,6 @@ namespace ProGet.Net
         }
 
         /// <summary>
-        /// Gets the license urls for a feed
-        /// </summary>
-        public async Task<IEnumerable<FeedLicenseUrl>> Feeds_GetLicenseUrlsAsync(int feed_Id)
-        {
-            var queryParamValues = QueryParamValues.From(
-                new NamedValue(nameof(feed_Id).Capitalize(), feed_Id)
-            );
-
-            return await ExecuteNativeApiMethodAsync<IEnumerable<FeedLicenseUrl>>(nameof(Feeds_GetLicenseUrlsAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
-        }
-
-        /// <summary>
         /// Gets the details of a Maven feed using either an ID or a name
         /// </summary>
         public async Task<FeedsFeedConnectorsExtended> Feeds_GetMavenFeedAsync(
