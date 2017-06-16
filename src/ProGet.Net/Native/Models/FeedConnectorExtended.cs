@@ -17,7 +17,7 @@ namespace ProGet.Net.Native.Models
         public string Connector_Url { get; set; }
         public object IndexUpdated_Date { get; set; }
         public string Status_Code { get; set; }
-        public int Package_Count { get; set; }
+        public int? Package_Count { get; set; }
         public string LastTest_Date { get; set; }
         public bool MetadataCache_Enabled_Indicator { get; set; }
     }
