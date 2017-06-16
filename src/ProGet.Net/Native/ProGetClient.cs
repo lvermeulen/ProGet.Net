@@ -11,16 +11,12 @@ namespace ProGet.Net
         private IFlurlClient GetNativeApiClient(string path, object queryParamValues = null) => GetApiClient("/api/json")
             .AppendPathSegment(path)
             .SetQueryParams(queryParamValues)
-            .AllowAnyHttpStatus();
+            .ConfigureClient(settings => settings.OnError = ErrorHandler);
 
-        private async Task<TResult> ExecuteNativeApiMethodAsync<TResult>(string nativeApiMethodName, IDictionary<string, object> parameters = null)
-        {
-            var response = await GetNativeApiClient(nativeApiMethodName, parameters)
+        private async Task<TResult> ExecuteNativeApiMethodAsync<TResult>(string nativeApiMethodName, IDictionary<string, object> parameters = null) => 
+            await GetNativeApiClient(nativeApiMethodName, parameters)
                 .GetJsonAsync<TResult>()
                 .ConfigureAwait(false);
-
-            return response;
-        }
 
         private async Task<bool> ExecuteNativeApiMethodAsync(string nativeApiMethodName, IDictionary<string, object> parameters = null)
         {

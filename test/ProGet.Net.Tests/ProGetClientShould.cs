@@ -6,7 +6,7 @@
 
         public ProGetClientShould()
         {
-            _client = new ProGetClient("http://localhost:82", "12345");
+            _client = new ProGetClient("http://mbp:82", "12345");
         }
     }
 }

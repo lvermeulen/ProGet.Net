@@ -1,4 +1,5 @@
 ﻿using Flurl;
+using Flurl.Http;
 
 namespace ProGet.Net
 {
@@ -16,5 +17,16 @@ namespace ProGet.Net
         private Url GetApiClient(string basePath) => new Url(_url)
             .AppendPathSegment(basePath)
             .SetQueryParam("key", _apiKey);
+
+        private void ErrorHandler(HttpCall call)
+        {
+            if (call.Completed)
+            {
+                string responseContent = call.Response.Content.ReadAsStringAsync().Result;
+                call.ExceptionHandled = true;
+
+                throw new FlurlHttpException(call, responseContent, call.Exception);
+            }
+        }
     }
 }

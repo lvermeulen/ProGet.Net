@@ -13,7 +13,7 @@ namespace ProGet.Net
         private IFlurlClient GetPackagePromotionApiClient(string path, object queryParamValues = null) => GetApiClient("/api/promotions")
             .AppendPathSegment(path)
             .SetQueryParams(queryParamValues, Flurl.NullValueHandling.NameOnly)
-            .AllowAnyHttpStatus();
+            .ConfigureClient(settings => settings.OnError = ErrorHandler);
 
         public async Task<IEnumerable<Promotion>> PackagePromotion_ListPromotionsAsync(string fromFeed, string toFeed, string groupName, string packageName, string version)
         {

@@ -14,7 +14,7 @@ namespace ProGet.Net
         private IFlurlClient GetUniversalFeedApiClient(string path, object queryParamValues = null) => GetApiClient("/upack")
             .AppendPathSegment(path)
             .SetQueryParams(queryParamValues, Flurl.NullValueHandling.NameOnly)
-            .AllowAnyHttpStatus();
+            .ConfigureClient(settings => settings.OnError = ErrorHandler);
 
         public async Task<IEnumerable<Package>> UniversalFeed_ListPackagesAsync(string feedName, string group = null, string name = null, int? count = null)
         {
