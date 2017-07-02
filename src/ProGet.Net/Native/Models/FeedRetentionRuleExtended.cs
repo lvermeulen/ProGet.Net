@@ -9,13 +9,13 @@ namespace ProGet.Net.Native.Models
         public string FeedType_Name { get; set; }
         public int Sequence_Number { get; set; }
         public bool DeletePrereleaseVersions_Indicator { get; set; }
-        public int KeepVersions_Count { get; set; }
-        public object KeepUsedWithin_Days { get; set; }
-        public object DeletePackageIds_Csv { get; set; }
-        public object KeepPackageIds_Csv { get; set; }
+        public int? KeepVersions_Count { get; set; }
+        public int? KeepUsedWithin_Days { get; set; }
+        public string DeletePackageIds_Csv { get; set; }
+        public string KeepPackageIds_Csv { get; set; }
         public bool DeleteCached_Indicator { get; set; }
-        public int SizeTrigger_KBytes { get; set; }
+        public long? SizeTrigger_KBytes { get; set; }
         public bool SizeExclusive_Indicator { get; set; }
-        public object TriggerDownload_Count { get; set; }
+        public int? TriggerDownload_Count { get; set; }
     }
 }

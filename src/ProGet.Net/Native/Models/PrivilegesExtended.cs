@@ -11,7 +11,7 @@ namespace ProGet.Net.Native.Models
         public int UserDirectory_Id { get; set; }
         public int Role_Id { get; set; }
         public string Role_Name { get; set; }
-        public object Feed_Id { get; set; }
-        public object Feed_Name { get; set; }
+        public int? Feed_Id { get; set; }
+        public string Feed_Name { get; set; }
     }
 }

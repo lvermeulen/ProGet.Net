@@ -20,7 +20,7 @@ namespace ProGet.Net.Tests
         [Fact]
         public async Task NpmFeeds_GetConnectorPackageAsync()
         {
-            var result = await _client.NpmFeeds_GetConnectorPackageAsync(4, "express", "4.15.3");
+            var result = await _client.NpmFeeds_GetConnectorPackageAsync(4, "uuid", "3.1.0");
 
             Assert.NotNull(result);
         }

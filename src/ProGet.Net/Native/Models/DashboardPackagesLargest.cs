@@ -6,6 +6,6 @@ namespace ProGet.Net.Native.Models
     {
         public int Feed_Id { get; set; }
         public string Package_Name { get; set; }
-        public int Total_Size { get; set; }
+        public long? Total_Size { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿// ReSharper disable InconsistentNaming
+﻿using System;
+
+// ReSharper disable InconsistentNaming
 
 namespace ProGet.Net.Native.Models
 {
@@ -8,6 +10,6 @@ namespace ProGet.Net.Native.Models
         public string Package_Name { get; set; }
         public string Repository_Url { get; set; }
         public int Hit_Count { get; set; }
-        public object LastRequested_Date { get; set; }
+        public DateTime? LastRequested_Date { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿// ReSharper disable InconsistentNaming
+﻿using System;
+
+// ReSharper disable InconsistentNaming
 
 namespace ProGet.Net.Native.Models
 {
@@ -9,13 +11,13 @@ namespace ProGet.Net.Native.Models
         public string Connector_Url { get; set; }
         public string FeedType_Name { get; set; }
         public string User_Name { get; set; }
-        public object Password_Bytes { get; set; }
+        public byte[] Password_Bytes { get; set; }
         public int Timeout_Period { get; set; }
-        public object Filter_Csv { get; set; }
-        public object IndexUpdated_Date { get; set; }
+        public string Filter_Csv { get; set; }
+        public DateTime? IndexUpdated_Date { get; set; }
         public string Status_Code { get; set; }
-        public object Package_Count { get; set; }
-        public object LastTest_Date { get; set; }
+        public long? Package_Count { get; set; }
+        public DateTime? LastTest_Date { get; set; }
         public int MetadataCache_Minutes { get; set; }
         public int MetadataCache_Count { get; set; }
         public bool MetadataCache_Enabled_Indicator { get; set; }

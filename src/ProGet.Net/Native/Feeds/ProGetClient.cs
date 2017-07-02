@@ -288,7 +288,7 @@ namespace ProGet.Net
         /// <summary>
         /// Gets the details of a NuGet feed using either an ID or a name
         /// </summary>
-        public async Task<NuGetFeedsExtendedFeedConnectorsExtendedFeedLIcenseUrls> Feeds_GetNuGetFeedAsync(
+        public async Task<NuGetFeedsExtendedFeedConnectorsExtendedFeedLicenseUrls> Feeds_GetNuGetFeedAsync(
             int feed_Id,
             string feed_Name)
         {
@@ -297,7 +297,7 @@ namespace ProGet.Net
                 new NamedValue(nameof(feed_Name).Capitalize(), feed_Name)
             );
 
-            return await ExecuteNativeApiMethodAsync<NuGetFeedsExtendedFeedConnectorsExtendedFeedLIcenseUrls>(nameof(Feeds_GetNuGetFeedAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
+            return await ExecuteNativeApiMethodAsync<NuGetFeedsExtendedFeedConnectorsExtendedFeedLicenseUrls>(nameof(Feeds_GetNuGetFeedAsync).WithoutAsyncSuffix(), queryParamValues).ConfigureAwait(false);
         }
 
         /// <summary>
