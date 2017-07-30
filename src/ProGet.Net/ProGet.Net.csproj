@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>ProGet HTTP Client</Description>
+    <Copyright>Copyright 2017</Copyright>
+    <AssemblyTitle>ProGet.Net</AssemblyTitle>
+    <Authors>Luk Vermeulen</Authors>
+    <TargetFrameworks>net452;netstandard1.4</TargetFrameworks>
+    <AssemblyName>ProGet.Net</AssemblyName>
+    <PackageId>ProGet.Net</PackageId>
+    <PackageTags>ProGet;HTTP</PackageTags>
+    <PackageIconUrl>http://i.imgur.com/r6KLIJa.png?1</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/lvermeulen/ProGet.Net</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/lvermeulen/ProGet.Net/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/lvermeulen/ProGet.Net</RepositoryUrl>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.4' ">1.6.0</NetStandardImplicitPackageVersion>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl" Version="2.3.0" />
+    <PackageReference Include="Flurl.Http" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
