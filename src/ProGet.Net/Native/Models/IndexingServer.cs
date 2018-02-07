@@ -8,7 +8,7 @@ namespace ProGet.Net.Native.Models
     {
         public string Server_Name { get; set; }
         public string IPAddress_Text { get; set; }
-        public DateTime LastUpdated_Date { get; set; }
+        public DateTime? LastUpdated_Date { get; set; }
         public bool Primary_Indicator { get; set; }
     }
 }

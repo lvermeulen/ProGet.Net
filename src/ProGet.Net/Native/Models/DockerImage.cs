@@ -11,6 +11,6 @@ namespace ProGet.Net.Native.Models
         public string Image_Digest { get; set; }
         public byte[] ManifestJson_Bytes { get; set; }
         public int Download_Count { get; set; }
-        public DateTime Published_Date { get; set; }
+        public DateTime? Published_Date { get; set; }
     }
 }

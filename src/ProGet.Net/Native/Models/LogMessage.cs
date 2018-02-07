@@ -8,7 +8,7 @@ namespace ProGet.Net.Native.Models
     {
         public int LogMessage_Id { get; set; }
         public bool Read_Indicator { get; set; }
-        public DateTime Logged_Date { get; set; }
+        public DateTime? Logged_Date { get; set; }
         public string Message_Text { get; set; }
         public string Category_Name { get; set; }
         public int Message_Level { get; set; }

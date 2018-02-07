@@ -10,7 +10,7 @@ namespace ProGet.Net.Native.Models
         public string Package_Id { get; set; }
         public string Version_Text { get; set; }
         public string TargetFrameworks_Text { get; set; }
-        public DateTime Published_Date { get; set; }
+        public DateTime? Published_Date { get; set; }
         public long Package_Size { get; set; }
         public byte[] NuspecFile_Bytes { get; set; }
         public byte[] PackageHash_Bytes { get; set; }

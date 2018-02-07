@@ -9,7 +9,7 @@ namespace ProGet.Net.Native.Models
         public string Package_Id { get; set; }
         public string Version_Text { get; set; }
         public string TargetFrameworks_Text { get; set; }
-        public DateTime Published_Date { get; set; }
+        public DateTime? Published_Date { get; set; }
         public long Package_Size { get; set; }
         public byte[] PackageHash_Bytes { get; set; }
         public byte[] PackageHash_SHA1_Bytes { get; set; }
@@ -25,7 +25,7 @@ namespace ProGet.Net.Native.Models
         public string FeedType_Name { get; set; }
         public bool? Prerelease_Indicator { get; set; }
         public bool Listed_Indicator { get; set; }
-        public DateTime LastDownloaded_Date { get; set; }
+        public DateTime? LastDownloaded_Date { get; set; }
         public bool LatestAbsoluteVersion_Indicator { get; set; }
         public bool LatestStableVersion_Indicator { get; set; }
     }
