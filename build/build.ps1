@@ -4,7 +4,7 @@ param (
 )
 
 # set version number in package.json
-Get-ChildItem -Path $PSScriptRoot\..\src -Filter project.json -Recurse | ForEach-Object{ 
+Get-ChildItem -Path $PSScriptRoot\..\src -Filter *.csproj -Recurse | ForEach-Object{ 
     $ProjectJsonPath =  $_.FullName
     if ($TagVersionNumber){
         (gc -Path $ProjectJsonPath) `
@@ -19,7 +19,7 @@ Get-ChildItem -Path $PSScriptRoot\..\src -Filter project.json -Recurse | ForEach
 }
 
 # run restore on all project.json files in the src folder including 2>1 to redirect stderr to stdout for badly behaved tools
-Get-ChildItem -Path $PSScriptRoot\..\src -Filter project.json -Recurse | ForEach-Object { & dotnet restore $_.FullName 2>1 }
+Get-ChildItem -Path $PSScriptRoot\..\src -Filter *.csproj -Recurse | ForEach-Object { & dotnet restore $_.FullName 2>1 }
 
 # run pack on all project.json files in the src folder including 2>1 to redirect stderr to stdout for badly behaved tools
-Get-ChildItem -Path $PSScriptRoot\..\src -Filter project.json -Recurse | ForEach-Object { & dotnet pack $_.FullName -c Release 2>1 }
+Get-ChildItem -Path $PSScriptRoot\..\src -Filter *.csproj -Recurse | ForEach-Object { & dotnet pack $_.FullName -c Release 2>1 }
