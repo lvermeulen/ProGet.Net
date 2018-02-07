@@ -12,13 +12,13 @@ build_script:
 - ps: .\build\build.ps1 $env:APPVEYOR_BUILD_VERSION $env:APPVEYOR_REPO_TAG_NAME
 #before_test:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-test_script:
-- ps: |
-    if ($true)
-    {
-        .\build\test.ps1
-        .\build\cover.ps1 "$env:COVERALLS_REPO_TOKEN" "$env:COVER_FILTER"
-    }
+#test_script:
+#- ps: |
+#    if ($true)
+#    {
+#        .\build\test.ps1
+#        .\build\cover.ps1 "$env:COVERALLS_REPO_TOKEN" "$env:COVER_FILTER"
+#    }
 artifacts:
 - path: '**\*.nupkg'
 deploy:
