@@ -1,4 +1,7 @@
-﻿namespace ProGet.Net.Tests
+﻿using System.IO;
+using Microsoft.Extensions.Configuration;
+
+namespace ProGet.Net.Tests
 {
     public partial class ProGetClientShould
     {
@@ -6,7 +9,11 @@
 
         public ProGetClientShould()
         {
-            _client = new ProGetClient("http://mbp:82", "12345");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+            _client = new ProGetClient(configuration["progetUrl"], configuration["apiKey"]);
         }
     }
 }
