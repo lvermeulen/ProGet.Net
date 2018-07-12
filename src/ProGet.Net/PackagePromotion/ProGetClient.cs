@@ -32,6 +32,7 @@ namespace ProGet.Net
         public async Task<bool> PackagePromotion_PromotePackageAsync(PackagePromotionContents packagePromotion)
         {
             var response = await GetPackagePromotionApiClient("promote")
+                .WithHeader("X-ApiKey", _apiKey)
                 .PostJsonAsync(packagePromotion);
 
             return response.IsSuccessStatusCode;
