@@ -42,16 +42,8 @@ namespace ProGet.Net
                 .GetJsonAsync<IEnumerable<PackageVersion>>();
         }
 
-        public async Task<PackageDownload> UniversalFeed_DownloadPackageSpecificVersionAsync(string feedName, string groupName, string packageName, string packageVersion, ContentOnlyTypes? contentOnly = null)
+        private async Task<PackageDownload> DownloadPackageAsync(string path, object queryParamValues = null)
         {
-            var queryParamValues = QueryParamValues.From(
-                new NamedValue(nameof(contentOnly), contentOnly)
-            );
-
-            string path = groupName == null
-                ? $"{feedName}/download/{packageName}/{packageVersion}"
-                : $"{feedName}/download/{groupName}/{packageName}/{packageVersion}";
-
             var response = await GetUniversalFeedApiClient(path, queryParamValues)
                 .GetAsync();
 
@@ -67,6 +59,32 @@ namespace ProGet.Net
             };
         }
 
+        private string GetDownloadPath(string feedName, string groupName, string packageName, string packageVersion, string downloadSegmentName)
+        {
+            string packageVersionString = packageVersion == null
+                ? ""
+                : $"/{packageVersion}";
+
+            return groupName == null
+                ? $"{feedName}/{downloadSegmentName}/{packageName}{packageVersionString}"
+                : $"{feedName}/{downloadSegmentName}/{groupName}/{packageName}{packageVersionString}";
+        }
+
+        private string GetPackageDownloadPath(string feedName, string groupName, string packageName, string packageVersion = null) => 
+            GetDownloadPath(feedName, groupName, packageName, packageVersion, "download");
+
+        private string GetVirtualPackageDownloadPath(string feedName, string groupName, string packageName, string packageVersion = null) => 
+            GetDownloadPath(feedName, groupName, packageName, packageVersion, "download-vpack");
+
+        public async Task<PackageDownload> UniversalFeed_DownloadPackageSpecificVersionAsync(string feedName, string groupName, string packageName, string packageVersion, ContentOnlyTypes? contentOnly = null)
+        {
+            var queryParamValues = QueryParamValues.From(
+                new NamedValue(nameof(contentOnly), contentOnly)
+            );
+
+            return await DownloadPackageAsync(GetPackageDownloadPath(feedName, groupName, packageName, packageVersion), queryParamValues);
+        }
+
         public async Task<PackageDownload> UniversalFeed_DownloadPackageLatestVersionAsync(string feedName, string groupName, string packageName, ContentOnlyTypes? contentOnly = null)
         {
             var queryParamValues = QueryParamValues.From(
@@ -74,23 +92,7 @@ namespace ProGet.Net
                 new NamedValue("latest")
             );
 
-            string path = groupName == null
-                ? $"{feedName}/download/{packageName}"
-                : $"{feedName}/download/{groupName}/{packageName}";
-
-            var response = await GetUniversalFeedApiClient(path, queryParamValues)
-                .GetAsync();
-
-            if (!response.IsSuccessStatusCode)
-            {
-                return null;
-            }
-
-            return new PackageDownload
-            {
-                FileName = response.Content.Headers.ContentDisposition.FileName,
-                Bytes = await response.Content.ReadAsByteArrayAsync()
-            };
+            return await DownloadPackageAsync(GetPackageDownloadPath(feedName, groupName, packageName), queryParamValues);
         }
 
         public async Task<bool> UniversalFeed_UploadPackageAsync(string feedName, PackageUpload packageUpload)
@@ -119,6 +121,24 @@ namespace ProGet.Net
                 .DeleteAsync();
 
             return response.IsSuccessStatusCode;
+        }
+
+        public async Task<object> UniversalFeed_DownloadVirtualPackageSpecificVersionAsync(string feedName, string groupName, string packageName, string packageVersion) => 
+            await DownloadPackageAsync(GetVirtualPackageDownloadPath(feedName, groupName, packageName, packageVersion));
+
+        public async Task<object> UniversalFeed_DownloadVirtualPackageLatestVersionAsync(string feedName, string groupName, string packageName)
+        {
+            var queryParamValues = QueryParamValues.From(
+                new NamedValue("latest")
+            );
+
+            return await DownloadPackageAsync(GetVirtualPackageDownloadPath(feedName, groupName, packageName), queryParamValues);
+        }
+
+        public async Task<FeedMetaData> UniversalFeed_GetFeedMetaDataAsync(string feedName)
+        {
+            return await GetUniversalFeedApiClient($"/{feedName}/meta")
+                .GetJsonAsync<FeedMetaData>();
         }
 
         public async Task<IEnumerable<Package>> UniversalFeed_SearchPackagesAsync(string feedName, string query, int? count = null)

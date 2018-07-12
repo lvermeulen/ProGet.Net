@@ -36,7 +36,7 @@ namespace ProGet.Net.Tests
         [Fact]
         public async Task NuGetPackages_GetPackageCountAsync()
         {
-            var result = await _client.NuGetPackages_GetPackageCountAsync(2, "AspNet.ScriptManager.bootstrap", 1000);
+            int result = await _client.NuGetPackages_GetPackageCountAsync(2, "AspNet.ScriptManager.bootstrap", 1000);
 
             Assert.True(result >= 0);
         }

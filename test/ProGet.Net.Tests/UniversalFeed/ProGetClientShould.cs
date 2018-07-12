@@ -8,13 +8,21 @@ namespace ProGet.Net.Tests
     public partial class ProGetClientShould
     {
         [Theory]
-        [InlineData("fromFeed", "toFeed")]
-        public async Task PackagePromotion_ListPromotionsAsync(string fromFeed, string toFeed)
+        [InlineData("Tobania-Universal")]
+        public async Task UniversalFeed_ListPackagesAsync(string feedName)
         {
-            var results = await _client.PackagePromotion_ListPromotionsAsync(fromFeed, toFeed, null, null, null);
+            var results = await _client.UniversalFeed_ListPackagesAsync(feedName);
 
-            Assert.NotNull(results);
             Assert.NotEmpty(results);
+        }
+
+        [Theory]
+        [InlineData("Tobania-Universal")]
+        public async Task UniversalFeed_GetFeedMetaDataAsync(string feedName)
+        {
+            var result = await _client.UniversalFeed_GetFeedMetaDataAsync(feedName);
+
+            Assert.NotNull(result);
         }
     }
 }
